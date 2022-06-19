@@ -26,7 +26,7 @@ https://restcountries.com
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://rest-countries-api-nadoba95.netlify.app/countries](https://rest-countries-api-nadoba95.netlify.app/countries)
 
 ### Built with
 

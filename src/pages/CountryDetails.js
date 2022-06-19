@@ -111,7 +111,11 @@ function CountryDetails() {
     );
   }
 
-  return <div className={backgroundClasses}>{content}</div>;
+  return (
+    <div className={classes.wrapper}>
+      <div className={backgroundClasses}>{content}</div>;
+    </div>
+  );
 }
 
 export default CountryDetails;

@@ -94,38 +94,38 @@ function Countries() {
     content = <p className={classes.loading}>No country found</p>;
   }
 
-  const backgroundClasses = `${classes.background} ${
-    !isLight && classes.active
-  }`;
+  const wrapperClasses = `${classes.wrapper} ${!isLight && classes.active}`;
   const separatorClasses = `${classes.separator} ${!isLight && classes.active}`;
 
   return (
-    <div className={backgroundClasses}>
-      <div className={separatorClasses}>
-        <div className={classes.search}>
-          <i className="fa-solid fa-magnifying-glass"></i>
-          <input
-            ref={inputSearchRef}
-            onChange={searchCountriesHandler}
-            placeholder="Search for a country..."
-          ></input>
+    <div className={wrapperClasses}>
+      <div className={classes.background}>
+        <div className={separatorClasses}>
+          <div className={classes.search}>
+            <i className="fa-solid fa-magnifying-glass"></i>
+            <input
+              ref={inputSearchRef}
+              onChange={searchCountriesHandler}
+              placeholder="Search for a country..."
+            ></input>
+          </div>
+          <div className={classes.filter} onClick={showRegionsHandler}>
+            <p>{regionText}</p>
+            <i className="fa-solid fa-angle-down"></i>
+          </div>
+          {showRegions && (
+            <span className={classes.region}>
+              <p onClick={showCountriesFromRegionHandler}>Africa</p>
+              <p onClick={showCountriesFromRegionHandler}>America</p>
+              <p onClick={showCountriesFromRegionHandler}>Asia</p>
+              <p onClick={showCountriesFromRegionHandler}>Europe</p>
+              <p onClick={showCountriesFromRegionHandler}>Oceania</p>
+              <p onClick={showAllCountriesHandler}>Show All</p>
+            </span>
+          )}
         </div>
-        <div className={classes.filter} onClick={showRegionsHandler}>
-          <p>{regionText}</p>
-          <i className="fa-solid fa-angle-down"></i>
-        </div>
-        {showRegions && (
-          <span className={classes.region}>
-            <p onClick={showCountriesFromRegionHandler}>Africa</p>
-            <p onClick={showCountriesFromRegionHandler}>America</p>
-            <p onClick={showCountriesFromRegionHandler}>Asia</p>
-            <p onClick={showCountriesFromRegionHandler}>Europe</p>
-            <p onClick={showCountriesFromRegionHandler}>Oceania</p>
-            <p onClick={showAllCountriesHandler}>Show All</p>
-          </span>
-        )}
+        {content}
       </div>
-      {content}
     </div>
   );
 }

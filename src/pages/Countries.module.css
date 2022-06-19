@@ -1,13 +1,15 @@
-.background {
-  width: 100%;
-  height: fit-content;
-  padding: 0px 65px;
-  transition: 0.2s;
+.wrapper {
+  display: flex;
+  justify-content: center;
 }
 
-.background.active {
-  background-color: rgb(32, 44, 55);
-  color: white;
+.background {
+  max-width: 1440px;
+  width: 100%;
+  height: fit-content;
+  position: relative;
+  padding: 0px 65px;
+  transition: 0.2s;
 }
 
 .separator {
@@ -61,7 +63,7 @@
   width: 200px;
   background-color: white;
   position: absolute;
-  top: 175px;
+  top: 95px;
   right: 65px;
   display: flex;
   flex-direction: column;
@@ -83,5 +85,10 @@
 .separator.active span,
 .separator.active input {
   background-color: rgb(43, 57, 69);
+  color: white;
+}
+
+.wrapper.active {
+  background-color: rgb(32, 44, 55);
   color: white;
 }
