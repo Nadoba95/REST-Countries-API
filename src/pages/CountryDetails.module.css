@@ -26,7 +26,6 @@
 
 .details img {
   max-width: 45%;
-  height: 100%;
 }
 
 .details h4 {
@@ -112,7 +111,6 @@ button.active:hover {
 
   .details img {
     max-width: 100%;
-    height: fit-content;
   }
 
   .details_row {
