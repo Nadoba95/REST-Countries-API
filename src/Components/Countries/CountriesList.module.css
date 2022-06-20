@@ -5,3 +5,24 @@
   grid-row-gap: 70px;
   padding-bottom: 50px;
 }
+
+/* Media */
+
+@media (max-width: 1280px) {
+  .list {
+    grid-template-columns: repeat(3, 30%);
+  }
+}
+
+@media (max-width: 768px) {
+  .list {
+    grid-template-columns: repeat(2, 48%);
+  }
+}
+
+@media (max-width: 580px) {
+  .list {
+    grid-template-columns: auto;
+    justify-content: center;
+  }
+}
