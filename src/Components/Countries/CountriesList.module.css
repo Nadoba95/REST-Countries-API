@@ -1,7 +1,8 @@
 .list {
   display: grid;
-  grid-template-columns: repeat(4, 20%);
+  grid-template-columns: auto auto auto auto;
   justify-content: space-between;
+  grid-column-gap: 25px;
   grid-row-gap: 70px;
   padding-bottom: 50px;
 }
@@ -10,13 +11,15 @@
 
 @media (max-width: 1280px) {
   .list {
-    grid-template-columns: repeat(3, 30%);
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 15px;
   }
 }
 
 @media (max-width: 768px) {
   .list {
-    grid-template-columns: repeat(2, 48%);
+    grid-template-columns: auto auto;
+    grid-column-gap: 10px;
   }
 }
 

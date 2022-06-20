@@ -37,7 +37,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 1370px) {
+@media (max-width: 768px) {
   .header div {
     padding: 0px 30px;
   }

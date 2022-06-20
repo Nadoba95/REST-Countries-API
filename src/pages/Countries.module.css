@@ -94,11 +94,6 @@
 }
 
 /* Media */
-@media (max-width: 1370px) {
-  .background {
-    padding: 0px 30px;
-  }
-}
 
 @media (max-width: 1280px) {
   .region {
@@ -107,6 +102,10 @@
 }
 
 @media (max-width: 768px) {
+  .background {
+    padding: 0px 30px;
+  }
+
   .separator {
     flex-direction: column;
     gap: 20px;

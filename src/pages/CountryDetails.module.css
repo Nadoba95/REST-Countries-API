@@ -26,6 +26,7 @@
 
 .details img {
   max-width: 45%;
+  height: 100%;
 }
 
 .details h4 {
@@ -85,4 +86,48 @@ button.active:hover {
 .loading {
   text-align: center;
   font-size: 22px;
+}
+
+/* Media */
+
+@media (max-width: 1370px) {
+  .details {
+    flex-direction: column;
+    align-items: baseline;
+    padding-bottom: 65px;
+    padding-top: 30px;
+    gap: 30px;
+  }
+
+  .details img {
+    max-width: 550px;
+  }
+}
+
+@media (max-width: 768px) {
+  .background {
+    padding: 65px 30px;
+  }
+
+  .details img {
+    max-width: 100%;
+    height: 100%;
+  }
+
+  .details_row {
+    gap: 80px;
+  }
+}
+
+@media (max-width: 580px) {
+  .details_row {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .borders {
+    flex-direction: column;
+    gap: 10px;
+    align-items: baseline;
+  }
 }
