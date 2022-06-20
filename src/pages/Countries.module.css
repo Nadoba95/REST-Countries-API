@@ -1,12 +1,18 @@
 .wrapper {
   display: flex;
   justify-content: center;
+  min-height: calc(100vh - 83px);
+}
+
+.wrapper.active {
+  background-color: rgb(32, 44, 55);
+  color: white;
+  min-height: calc(100vh - 80px);
 }
 
 .background {
   max-width: 1440px;
   width: 100%;
-  height: fit-content;
   position: relative;
   padding: 0px 65px;
   transition: 0.2s;
@@ -85,11 +91,6 @@
 .separator.active span,
 .separator.active input {
   background-color: rgb(43, 57, 69);
-  color: white;
-}
-
-.wrapper.active {
-  background-color: rgb(32, 44, 55);
   color: white;
 }
 

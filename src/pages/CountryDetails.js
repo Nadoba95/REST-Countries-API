@@ -51,9 +51,7 @@ function CountryDetails() {
     navigate(-1);
   }
 
-  const backgroundClasses = `${classes.background} ${
-    !isLight && classes.active
-  }`;
+  const wrapperClasses = `${classes.wrapper} ${!isLight && classes.active}`;
   const buttonClasses = !isLight ? classes.active : "";
 
   let content = <p className={classes.loading}>Loading Country Details...</p>;
@@ -112,8 +110,8 @@ function CountryDetails() {
   }
 
   return (
-    <div className={classes.wrapper}>
-      <div className={backgroundClasses}>{content}</div>;
+    <div className={wrapperClasses}>
+      <div className={classes.background}>{content}</div>
     </div>
   );
 }
