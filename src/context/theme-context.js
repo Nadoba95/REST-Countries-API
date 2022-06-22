@@ -1,11 +1,11 @@
 import { createContext, useContext, useState } from "react";
 
-export const ThemeContext = createContext({
+const ThemeContext = createContext({
   isLight: true,
   changeTheme: () => {},
 });
 
-function ThemeContextProvider(props) {
+function ThemeContextProvider({ children }) {
   const [isLight, setIsLight] = useState(true);
 
   function changeThemeHandler() {
@@ -16,11 +16,11 @@ function ThemeContextProvider(props) {
     <ThemeContext.Provider
       value={{ isLight: isLight, changeTheme: changeThemeHandler }}
     >
-      {props.children}
+      {children}
     </ThemeContext.Provider>
   );
 }
 
-export default ThemeContextProvider;
-
 export const useThemeContext = () => useContext(ThemeContext);
+
+export default ThemeContextProvider;
