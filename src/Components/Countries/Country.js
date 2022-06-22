@@ -1,16 +1,14 @@
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { ThemeContext } from "../../context/theme-context";
+import { useThemeContext } from "../../context/theme-context";
 
 import classes from "./Country.module.css";
 
-function Country(props) {
+function Country({ name, flag, population, region, capital }) {
   const navigate = useNavigate();
-  const themeCtx = useContext(ThemeContext);
-  const { isLight } = themeCtx;
+  const { isLight } = useThemeContext();
 
   function goToSelectedCountryHandler() {
-    navigate(`/countries/${props.name}`);
+    navigate(`/countries/${name}`);
   }
 
   const listItemClasses = `${classes["list-item"]} ${
@@ -19,16 +17,16 @@ function Country(props) {
 
   return (
     <div className={listItemClasses} onClick={goToSelectedCountryHandler}>
-      <img alt={`${props.name} flag`} src={props.flag} />
-      <h3>{props.name}</h3>
+      <img alt={`${name} flag`} src={flag} />
+      <h3>{name}</h3>
       <p>
-        <b>Population:</b> {props.population}
+        <b>Population:</b> {population}
       </p>
       <p>
-        <b>Region:</b> {props.region}
+        <b>Region:</b> {region}
       </p>
       <p>
-        <b>Capital:</b> {props.capital}
+        <b>Capital:</b> {capital}
       </p>
     </div>
   );

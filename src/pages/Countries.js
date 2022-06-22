@@ -1,7 +1,7 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import CountriesList from "../Components/Countries/CountriesList";
-import { ThemeContext } from "../context/theme-context";
+import { useThemeContext } from "../context/theme-context";
 import useHttp from "../hooks/use-http";
 import classes from "./Countries.module.css";
 
@@ -14,8 +14,7 @@ function Countries() {
   const [regionText, setRegionText] = useState("Filter by Region");
 
   const inputSearchRef = useRef();
-  const themeCtx = useContext(ThemeContext);
-  const { isLight } = themeCtx;
+  const { isLight } = useThemeContext();
 
   const { sendRequest: fetchCountries, isLoading } = useHttp();
 

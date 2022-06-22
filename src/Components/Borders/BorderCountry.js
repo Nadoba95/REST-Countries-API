@@ -1,22 +1,20 @@
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { ThemeContext } from "../../context/theme-context";
+import { useThemeContext } from "../../context/theme-context";
 import classes from "./BorderCountry.module.css";
 
-function BorderCountry(props) {
+function BorderCountry({ name }) {
   const navigate = useNavigate();
-  const themeCtx = useContext(ThemeContext);
-  const { isLight } = themeCtx;
+  const { isLight } = useThemeContext();
 
   function goToBorderCountryHandler() {
-    navigate(`/countries/${props.name}`);
+    navigate(`/countries/${name}`);
   }
 
   const buttonClasses = `${classes.button} ${!isLight && classes.active}`;
 
   return (
     <div className={buttonClasses} onClick={goToBorderCountryHandler}>
-      {props.name}
+      {name}
     </div>
   );
 }

@@ -1,13 +1,11 @@
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { ThemeContext } from "../../context/theme-context";
+import { useThemeContext } from "../../context/theme-context";
 import classes from "./Header.module.css";
 
 function Header() {
   const navigate = useNavigate();
-  const themeCtx = useContext(ThemeContext);
-  const { isLight, changeTheme } = themeCtx;
+  const { isLight, changeTheme } = useThemeContext();
 
   function goToStartingPageHandler() {
     navigate("/countries");

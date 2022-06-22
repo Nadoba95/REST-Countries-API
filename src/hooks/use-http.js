@@ -1,15 +1,12 @@
 import { useCallback, useState } from "react";
+import { remote } from "../shared/remote";
 
 export function useHttpAll() {
   const sendRequest = useCallback(async (requestUrl) => {
     try {
-      const response = await fetch(requestUrl);
+      const response = await remote.get(requestUrl);
 
-      if (!response.ok) {
-        throw new Error("Request Failed!");
-      }
-
-      return response.json();
+      return response.data;
     } catch (error) {
       alert(error.message);
     }
@@ -35,15 +32,9 @@ function useHttp() {
   const sendRequest = useCallback(async (requestUrl, applyData) => {
     setIsLoading(true);
     try {
-      const response = await fetch(requestUrl);
+      const response = await remote.get(requestUrl);
 
-      if (!response.ok) {
-        throw new Error("Request Failed!");
-      }
-
-      const data = await response.json();
-
-      applyData(data);
+      applyData(response.data);
     } catch (error) {
       alert(error.message);
     }

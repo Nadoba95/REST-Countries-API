@@ -4,10 +4,8 @@ import { useHttpAll } from "../../hooks/use-http";
 import BorderCountry from "./BorderCountry";
 import classes from "./BordersList.module.css";
 
-function CountryBorders(props) {
+function CountryBorders({ borders }) {
   const [borderNames, setBorderNames] = useState([]);
-
-  const { borders } = props;
 
   const { sendRequest: fetchCountryBorders, sendPromiseAll } = useHttpAll();
 

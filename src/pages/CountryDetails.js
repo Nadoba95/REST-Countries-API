@@ -1,20 +1,17 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import BordersList from "../Components/Borders/BordersList";
-import { ThemeContext } from "../context/theme-context";
+import { useThemeContext } from "../context/theme-context";
 import useHttp from "../hooks/use-http";
 import classes from "./CountryDetails.module.css";
 
 function CountryDetails() {
   const [country, setCountry] = useState([]);
 
-  const themeCtx = useContext(ThemeContext);
-  const params = useParams();
+  const { isLight } = useThemeContext();
+  const { name } = useParams();
   const navigate = useNavigate();
-
-  const { name } = params;
-  const { isLight } = themeCtx;
 
   const { sendRequest: fetchCountryDetails, isLoading } = useHttp();
 
