@@ -67,20 +67,24 @@ function Countries() {
     if (region === "America") {
       region = region + "s";
     }
-
     setCountries(allCountries.filter((country) => country.region === region));
 
     if (inputSearchRef) {
       inputSearchRef.current.value = "";
     }
+
+    showRegionsHandler();
   }
 
   function showAllCountriesHandler() {
     setCountries(allCountries);
     setRegionText("Filter by Region");
+
     if (inputSearchRef) {
       inputSearchRef.current.value = "";
     }
+
+    showRegionsHandler();
   }
 
   let content = <p className={classes.loading}>Loading countries...</p>;
