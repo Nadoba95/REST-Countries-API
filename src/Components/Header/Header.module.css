@@ -37,6 +37,31 @@
   cursor: pointer;
 }
 
+.arrow-up {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 50%;
+  background-color: rgb(53, 53, 53);
+  bottom: 50px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 99;
+}
+
+.arrow-up.shown {
+  display: flex;
+}
+
+.arrow-up.active {
+  background-color: white;
+  color: black;
+}
+
 @media (max-width: 768px) {
   .header div {
     padding: 0px 30px;
