@@ -94,6 +94,10 @@
   color: white;
 }
 
+.separator.active input::placeholder {
+  color: white;
+}
+
 /* Media */
 
 @media (max-width: 1280px) {
