@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-
+import { formatPopulation } from "../Helpers/formatPopulation";
 import CountriesList from "../Components/Countries/CountriesList";
 import { useThemeContext } from "../context/theme-context";
 import useHttp from "../hooks/use-http";
@@ -28,7 +28,7 @@ function Countries() {
           flag: data.flags.png,
           region: data.region,
           capital: data.capital?.[0] || "none",
-          population: data.population,
+          population: formatPopulation(data.population),
         })
       );
 
@@ -42,11 +42,7 @@ function Countries() {
   function searchCountriesHandler() {
     const input = inputSearchRef.current.value.trim().toLowerCase();
 
-    setCountries(
-      allCountries.filter((country) =>
-        country.name.toLowerCase().startsWith(input)
-      )
-    );
+    setCountries(allCountries.filter((country) => country.name.toLowerCase().startsWith(input)));
 
     if (regionText !== "Filter by Region") {
       setRegionText("Filter by Region");
@@ -106,11 +102,7 @@ function Countries() {
         <div className={separatorClasses}>
           <div className={classes.search}>
             <i className="fa-solid fa-magnifying-glass"></i>
-            <input
-              ref={inputSearchRef}
-              onChange={searchCountriesHandler}
-              placeholder="Search for a country..."
-            ></input>
+            <input ref={inputSearchRef} onChange={searchCountriesHandler} placeholder="Search for a country..."></input>
           </div>
           <div className={classes.filter} onClick={showRegionsHandler}>
             <p>{regionText}</p>

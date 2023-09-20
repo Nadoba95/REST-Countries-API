@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-
 import BordersList from "../Components/Borders/BordersList";
 import { useThemeContext } from "../context/theme-context";
 import useHttp from "../hooks/use-http";
+import { formatPopulation } from "../Helpers/formatPopulation";
 import classes from "./CountryDetails.module.css";
 
 function CountryDetails() {
@@ -25,7 +25,7 @@ function CountryDetails() {
         name: dataObj[0].name,
         nativeName: dataObj[0].nativeName,
         flag: dataObj[0].flags.svg,
-        population: dataObj[0].population,
+        population: formatPopulation(dataObj[0].population),
         region: dataObj[0].region,
         subRegion: dataObj[0].subregion,
         capital: dataObj[0]?.capital || "none",
