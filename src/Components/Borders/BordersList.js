@@ -10,6 +10,10 @@ function CountryBorders({ borders }) {
   const { sendRequest: fetchCountryBorders, sendPromiseAll } = useHttpAll();
 
   useEffect(() => {
+    if (borders.length === 0) {
+      return;
+    }
+
     function setData(dataObj) {
       let borderArr = [];
 
@@ -20,13 +24,15 @@ function CountryBorders({ borders }) {
 
     sendPromiseAll(
       borders.map((border) => {
-        return fetchCountryBorders(
-          `https://restcountries.com/v2/alpha/${border}`
-        );
+        return fetchCountryBorders(`https://restcountries.com/v2/alpha/${border}`);
       }),
       setData
     );
   }, [fetchCountryBorders, sendPromiseAll, borders]);
+
+  if (borders.length === 0) {
+    return <p>No borders</p>;
+  }
 
   return (
     <div className={classes.list}>

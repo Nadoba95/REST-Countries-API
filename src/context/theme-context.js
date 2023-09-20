@@ -9,16 +9,10 @@ function ThemeContextProvider({ children }) {
   const [isLight, setIsLight] = useState(true);
 
   function changeThemeHandler() {
-    setIsLight(!isLight);
+    setIsLight((prevIsLite) => !prevIsLite);
   }
 
-  return (
-    <ThemeContext.Provider
-      value={{ isLight: isLight, changeTheme: changeThemeHandler }}
-    >
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ isLight: isLight, changeTheme: changeThemeHandler }}>{children}</ThemeContext.Provider>;
 }
 
 export const useThemeContext = () => useContext(ThemeContext);

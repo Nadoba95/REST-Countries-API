@@ -19,9 +19,7 @@ function CountryDetails() {
     function transformData(dataObj) {
       let languagesArr = [];
 
-      dataObj[0].languages.forEach((language) =>
-        languagesArr.push(language.name)
-      );
+      dataObj[0].languages.forEach((language) => languagesArr.push(language.name));
 
       setCountry({
         name: dataObj[0].name,
@@ -38,10 +36,7 @@ function CountryDetails() {
       });
     }
 
-    fetchCountryDetails(
-      `https://restcountries.com/v2/name/${name}`,
-      transformData
-    );
+    fetchCountryDetails(`https://restcountries.com/v2/name/${name}`, transformData);
   }, [fetchCountryDetails, name]);
 
   function goBackPageHandler() {
